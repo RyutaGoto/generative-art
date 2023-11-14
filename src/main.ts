@@ -8,7 +8,7 @@ const sketch = (p: p5) => {
 
   /** フレームごとの描画処理 */
   p.draw = () => {
-    p.circle(p.mouseX, p.mouseY, 100);
+    p.circle(p.mouseX, p.mouseY, p.random(100));
   };
 };
 
