@@ -9,9 +9,8 @@ const sketch = (p: p5) => {
 
   /** フレームごとの描画処理 */
   p.draw = () => {
-    p.strokeWeight(p.random(1, 5));
     p.stroke(p.random(180, 255));
-    p.circle(p.width / 2, p.height / 2, p.random(2, 300));
+    p.ellipse(p.width / 2, p.height / 2, p.random(50, 300), p.random(50, 300));
   };
 };
 
