@@ -7,13 +7,21 @@ const sketch = (p: p5) => {
     p.createCanvas(p.windowWidth, p.windowHeight);
     p.noStroke();
     p.fill(200);
+    reset();
   };
 
   /** フレームごとの描画処理 */
   p.draw = () => {
-    d++;
+    d += 2;
+    if (d > 900) {
+      reset();
+    }
     p.clear(0, 0, 0, 0);
     p.circle(p.width / 2, p.height / 2, d);
+  };
+
+  const reset = () => {
+    d = 0;
   };
 };
 
