@@ -13,7 +13,7 @@ const sketch = (p: p5) => {
   /** フレームごとの描画処理 */
   p.draw = () => {
     d += 2;
-    if (d > 900) {
+    if (d / 2 > p.dist(0, 0, p.width / 2, p.height / 2)) {
       reset();
     }
     p.clear(0, 0, 0, 0);
