@@ -3,11 +3,11 @@ import p5 from "p5";
 const sketch = (p: p5) => {
   /** 初期化処理 */
   let d = 0;
-  let bgColor: number, circleColor: number;
+  let bgColor: p5.Color, circleColor: p5.Color;
   p.setup = () => {
     p.createCanvas(p.windowWidth, p.windowHeight);
     p.noStroke();
-    circleColor = p.random(255);
+    circleColor = p.color(p.random(255), p.random(255), p.random(255));
     reset();
   };
 
@@ -25,7 +25,7 @@ const sketch = (p: p5) => {
   const reset = () => {
     d = 0;
     bgColor = circleColor;
-    circleColor = p.random(255);
+    circleColor = p.color(p.random(255), p.random(255), p.random(255));
   };
 };
 
