@@ -14,13 +14,17 @@ const sketch = (p: p5) => {
     p.noFill();
     p.stroke(255);
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 20; i++) {
+      const r = p.map(p.sin(p.frameCount), -1, 1, 0, 255);
+      const g = p.map(i, 0, 20, 0, 255);
+      const b = p.map(p.cos(p.frameCount), -1, 1, 255, 0);
+      p.stroke(r, g, b);
       p.beginShape();
       for (let j = 0; j < 360; j += 10) {
         const rad = i * 8;
         const x = rad * p.cos(j);
         const y = rad * p.sin(j);
-        const z = p.sin(p.frameCount + i * 20) * 50;
+        const z = p.sin(p.frameCount * 2 + i * 10) * 50;
         p.vertex(x, y, z);
       }
       p.endShape(p.CLOSE);
