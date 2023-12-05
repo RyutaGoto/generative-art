@@ -26,19 +26,26 @@ const sketch = (p: p5) => {
     p.translate(p.windowWidth / 2, p.windowHeight / 2);
     p.stroke(255);
 
-    const x1 = r1 * p.cos(a1);
-    const y1 = r1 * p.sin(a1);
+    for (let index = 0; index < 5; index++) {
+      const x1 = r1 * p.cos(a1);
+      const y1 = r1 * p.sin(a1);
 
-    const x2 = x1 + r2 * p.cos(a2);
-    const y2 = y1 + r2 * p.sin(a2);
+      const x2 = x1 + r2 * p.cos(a2);
+      const y2 = y1 + r2 * p.sin(a2);
 
-    p.line(prevX, prevY, x2, y2);
+      const r = p.map(p.sin(p.frameCount), -1, 1, 100, 200);
+      const g = p.map(p.cos(p.frameCount), -1, 1, 100, 200);
+      const b = p.map(p.sin(p.frameCount), -1, 1, 200, 100);
 
-    prevX = x2;
-    prevY = y2;
+      p.stroke(r, g, b);
+      p.line(prevX, prevY, x2, y2);
 
-    a1 += a1Inc;
-    a2 += a2Inc;
+      prevX = x2;
+      prevY = y2;
+
+      a1 += a1Inc;
+      a2 += a2Inc;
+    }
   };
 };
 
