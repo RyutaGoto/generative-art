@@ -26,7 +26,7 @@ const sketch = (p: p5) => {
     p.translate(p.windowWidth / 2, p.windowHeight / 2);
     p.stroke(255);
 
-    for (let index = 0; index < 5; index++) {
+    for (let index = 0; index < 100; index++) {
       const x1 = r1 * p.cos(a1);
       const y1 = r1 * p.sin(a1);
 
