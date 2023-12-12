@@ -18,9 +18,9 @@ const sketch = (p: p5) => {
     for (let i = 0; i < 360; i++) {
       p.push();
 
-      const r = p.map(p.sin(i), -1, 1, 200, 50);
-      const g = p.map(p.sin(i), -1, 1, 50, 200);
-      const b = p.map(p.cos(i), -1, 1, 50, 200);
+      const r = p.map(p.sin(i + p.frameCount), -1, 1, 200, 50);
+      const g = p.map(p.sin(i + p.frameCount), -1, 1, 50, 200);
+      const b = p.map(p.cos(i + p.frameCount), -1, 1, 50, 200);
 
       p.stroke(r, g, b);
       p.rotateY(i / 2);
