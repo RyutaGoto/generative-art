@@ -14,6 +14,8 @@ const sketch = (p: p5) => {
     p.stroke(255);
 
     p.rotateX(p.frameCount);
+    p.rotateY(p.frameCount);
+    p.rotateZ(p.frameCount);
 
     for (let i = 0; i < 360; i++) {
       p.push();
