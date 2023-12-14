@@ -13,6 +13,11 @@ const sketch = (p: p5) => {
     p.noFill();
     p.stroke(255);
 
+    const x = p.sin(p.frameCount) * 50;
+    const y = p.cos(p.frameCount * 2) * 50;
+    const z = p.sin(p.frameCount) * 100;
+
+    p.translate(x, y, z);
     p.rotateX(p.frameCount);
     p.rotateY(p.frameCount);
     p.rotateZ(p.frameCount);
