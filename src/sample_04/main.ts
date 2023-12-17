@@ -1,14 +1,25 @@
 import p5 from "p5";
+import { Particle } from "./particle";
 
 const sketch = (p: p5) => {
+  let particle: Particle;
+  let particles: Particle[] = [];
   p.setup = () => {
-    p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL);
-    p.angleMode(p.DEGREES);
+    p.createCanvas(p.windowWidth, p.windowHeight);
   };
 
   /** フレームごとの描画処理 */
   p.draw = () => {
     p.background(30);
+    for (let index = 0; index < 2; index++) {
+      particle = new Particle(p);
+      particles.push(particle);
+    }
+
+    for (let index = 0; index < particles.length; index++) {
+      particles[index].update();
+      particles[index].show(p);
+    }
   };
 };
 
