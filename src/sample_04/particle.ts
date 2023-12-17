@@ -10,12 +10,13 @@ export class Particle {
     this.pos = p.createVector(p.width / 2, p.height / 2);
     this.vel = p.createVector(0, 0);
     this.acc = p5.Vector.random2D().normalize().mult(0.1);
-    this.alpha = 100;
+    this.alpha = 255;
   }
 
   update() {
     this.vel.add(this.acc);
     this.pos.add(this.vel);
+    this.alpha -= 4;
   }
 
   show(p: p5) {
