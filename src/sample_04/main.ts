@@ -17,8 +17,12 @@ const sketch = (p: p5) => {
     }
 
     for (let index = 0; index < particles.length; index++) {
-      particles[index].update();
-      particles[index].show(p);
+      if (particles[index].alpha > 0) {
+        particles[index].update();
+        particles[index].show(p);
+      } else {
+        particles.splice(index, 1);
+      }
     }
   };
 };
