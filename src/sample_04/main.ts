@@ -11,14 +11,14 @@ const sketch = (p: p5) => {
   /** フレームごとの描画処理 */
   p.draw = () => {
     p.background(30);
-    for (let index = 0; index < 2; index++) {
+    for (let index = 0; index < 5; index++) {
       particle = new Particle(p);
       particles.push(particle);
     }
 
     for (let index = 0; index < particles.length; index++) {
       if (particles[index].alpha > 0) {
-        particles[index].update();
+        particles[index].update(p);
         particles[index].show(p);
       } else {
         particles.splice(index, 1);
