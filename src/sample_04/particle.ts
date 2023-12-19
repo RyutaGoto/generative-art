@@ -19,21 +19,33 @@ export class Particle {
     this.b = p.map(
       p.dist(p.width / 2, p.height / 2, this.pos.x, this.pos.y),
       0,
-      p.width,
+      p.width / 2,
       0,
       255
     );
   }
 
-  update() {
+  update(p: p5) {
     this.vel.add(this.acc);
     this.pos.add(this.vel);
-    this.alpha -= 4;
+    this.r = p.map(this.pos.x, 0, p.width, 255, 0);
+    this.g = p.map(this.pos.y, 0, p.height, 0, 255);
+    this.b = p.map(
+      p.dist(p.width / 2, p.height / 2, this.pos.x, this.pos.y),
+      0,
+      p.width / 2,
+      0,
+      255
+    );
+
+    if (p.dist(p.width / 2, p.height / 2, this.pos.x, this.pos.y) > 80) {
+      this.alpha -= 4;
+    }
   }
 
   show(p: p5) {
     p.noStroke();
     p.fill(this.r, this.g, this.b, this.alpha);
-    p.ellipse(this.pos.x, this.pos.y, 10);
+    p.ellipse(this.pos.x, this.pos.y, 5);
   }
 }
